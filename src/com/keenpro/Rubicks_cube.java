@@ -314,15 +314,59 @@ public class Rubicks_cube {
 
 
     public void turnRight1() {
+        for(int j=0; j<3; j++) {
+            String temp = frontFace[0][j];
+            frontFace[0][j] = leftFace[0][j];
+            leftFace[0][j] = backFace[0][j];
+            backFace[0][j] = rightFace[0][j];
+            rightFace[0][j] = temp;
+        }
+        String a = upperFace[2][1];
+        String b = upperFace[2][2];
 
+        upperFace[2][2] = upperFace[2][0];
+        upperFace[2][1] = upperFace[1][0];
+        upperFace[2][0] = upperFace[0][0];
+
+        upperFace[1][0] = upperFace[0][1];
+        upperFace[0][0] = upperFace[0][2];
+
+        upperFace[0][1] = upperFace[1][2];
+        upperFace[0][2] = b;
+        upperFace[1][2] = a;
     }
 
     public void turnRight2() {
-
+        for(int j=0; j<3; j++) {
+            String temp = frontFace[1][j];
+            frontFace[1][j] = leftFace[1][j];
+            leftFace[1][j] = backFace[1][j];
+            backFace[1][j] = rightFace[1][j];
+            rightFace[1][j] = temp;
+        }
     }
 
     public void turnRight3() {
+        for(int j=0; j<3; j++) {
+            String temp = frontFace[2][j];
+            frontFace[2][j] = leftFace[2][j];
+            leftFace[2][j] = backFace[2][j];
+            backFace[2][j] = rightFace[2][j];
+            rightFace[2][j] = temp;
+        }
+        String a = upperFace[2][0];
+        String b = upperFace[2][1];
 
+        upperFace[2][0] = upperFace[2][2];
+        upperFace[2][1] = upperFace[1][2];
+        upperFace[2][2] = upperFace[0][2];
+
+        upperFace[1][2] = upperFace[0][1];
+        upperFace[0][2] = upperFace[0][0];
+
+        upperFace[0][1] = upperFace[1][0];
+        upperFace[0][0] = a;
+        upperFace[1][0] = b;
     }
 
     public void turnToRight() {
@@ -337,15 +381,59 @@ public class Rubicks_cube {
 
 
     public void turnUp1() {
+        for(int i = 0; i<3; i++) {
+            String temp = frontFace[i][0];
+            frontFace[i][0] = lowerFace[2-i][0];
+            lowerFace[i][0] = backFace[i][2];
+            backFace[2-i][2] = upperFace[i][0];
+            upperFace[i][0] = temp;
+        }
+        String a = leftFace[2][1];
+        String b = leftFace[2][2];
 
+        leftFace[2][2] = leftFace[2][0];
+        leftFace[2][1] = leftFace[1][0];
+        leftFace[2][0] = leftFace[0][0];
+
+        leftFace[1][0] = leftFace[0][1];
+        leftFace[0][0] = leftFace[0][2];
+
+        leftFace[0][1] = leftFace[1][2];
+        leftFace[0][2] = b;
+        leftFace[1][2] = a;
     }
 
     public void turnUp2() {
-
+        for(int i = 0; i<3; i++) {
+            String temp = frontFace[i][1];
+            frontFace[i][1] = lowerFace[2-i][1];
+            lowerFace[i][1] = backFace[i][1];
+            backFace[2-i][1] = rightFace[i][1];
+            rightFace[i][1] = temp;
+        }
     }
 
     public void turnUp3() {
+        for(int i = 0; i<3; i++) {
+            String temp = frontFace[i][2];
+            frontFace[i][2] = lowerFace[2-i][2];
+            lowerFace[i][2] = backFace[i][0];
+            backFace[2-i][0] = upperFace[i][2];
+            upperFace[i][2] = temp;
+        }
+        String a = rightFace[2][0];
+        String b = rightFace[2][1];
 
+        rightFace[2][0] = rightFace[2][2];
+        rightFace[2][1] = rightFace[1][2];
+        rightFace[2][2] = rightFace[0][2];
+
+        rightFace[1][2] = rightFace[0][1];
+        rightFace[0][2] = rightFace[0][0];
+
+        rightFace[0][1] = rightFace[1][0];
+        rightFace[0][0] = a;
+        rightFace[1][0] = b;
     }
 
 
@@ -361,15 +449,59 @@ public class Rubicks_cube {
 
 
     public void turnDown1() {
+        for(int i=0; i<3;i++) {
+            String temp = frontFace[i][0];
+            frontFace[i][0] = upperFace[i][0];
+            upperFace[i][0] = backFace[2-i][2];
+            backFace[i][2] = lowerFace[i][0];
+            lowerFace[2-i][0] = temp;
+        }
+        String a = leftFace[2][0];
+        String b = leftFace[2][1];
 
+        leftFace[2][0] = leftFace[2][2];
+        leftFace[2][1] = leftFace[1][2];
+        leftFace[2][2] = leftFace[0][2];
+
+        leftFace[1][2] = leftFace[0][1];
+        leftFace[0][2] = leftFace[0][0];
+
+        leftFace[0][1] = leftFace[1][0];
+        leftFace[0][0] = a;
+        leftFace[1][0] = b;
     }
 
     public void turnDown2() {
-
+        for(int i=0; i<3;i++) {
+            String temp = frontFace[i][1];
+            frontFace[i][1] = upperFace[i][1];
+            upperFace[i][1] = backFace[2-i][1];
+            backFace[i][1] = lowerFace[i][1];
+            lowerFace[2-i][1] = temp;
+        }
     }
 
     public void turnDown3() {
+        for(int i=0; i<3;i++) {
+            String temp = frontFace[i][2];
+            frontFace[i][2] = upperFace[i][2];
+            upperFace[i][2] = backFace[2-i][0];
+            backFace[i][0] = lowerFace[i][2];
+            lowerFace[2-i][2] = temp;
+        }
+        String a = rightFace[2][1];
+        String b = rightFace[2][2];
 
+        rightFace[2][2] = rightFace[2][0];
+        rightFace[2][1] = rightFace[1][0];
+        rightFace[2][0] = rightFace[0][0];
+
+        rightFace[1][0] = rightFace[0][1];
+        rightFace[0][0] = rightFace[0][2];
+
+        rightFace[0][1] = rightFace[1][2];
+        rightFace[0][2] = b;
+        rightFace[1][2] = a;
     }
 
     public void turnToDown() {
