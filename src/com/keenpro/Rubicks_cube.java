@@ -95,7 +95,7 @@ public class Rubicks_cube {
         }
     }
 
-    public void randomize() throws Exception {
+    public void randomize() {
 
 
         for (int i = 0; i < 3; i++) {
@@ -294,7 +294,7 @@ public class Rubicks_cube {
 
 
     private static String randomColour(int whiteCount, int yellowCount, int blueCount,
-                                       int redCount, int orangeCount, int greenCount) throws Exception {
+                                       int redCount, int orangeCount, int greenCount) {
 
         int r = (int) (Math.random() * 100);
 
@@ -321,8 +321,7 @@ public class Rubicks_cube {
         if (r < 100 && greenCount > 0) return "green";
         else if (whiteCount < 1 && r < 100) return randomColour(whiteCount, yellowCount,
                 blueCount, redCount, orangeCount, 0);
-
-        throw new Exception("Incorrect randomColour method");
+        return "";
     }
 
 
