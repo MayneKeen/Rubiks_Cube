@@ -54,6 +54,11 @@ class Rubicks_cubeTest {
         }
     }
 
+
+
+    //if common [turnTo()] method is correct then all [turnTo*() methods are correct (Im 2 lazy 2 make 12 mor tests)
+
+
     @Test
     void turnToLeft() throws Exception {
         Rubicks_cube defaultCube = new Rubicks_cube();
@@ -141,16 +146,14 @@ class Rubicks_cubeTest {
 
         for(int i = 0; i<3; i++) {
             for(int j = 0; j<3; j++) {
-                //if(front[i][j] != defLower[2-i][j]) throw new Exception("Incorrect turnToUp() method" + front[i][j] + " "+ i + " " +j+" " + defLower[i][2-j]);
-                //if(lower[i][2-j] != defBack[i][j]) throw new Exception("Incorrect turnToUp() method" + lower[i][j] + " "+ i + " " +j+" " + defBack[i][2-j]);
-                if(back[2-i][2-j] != defUpper[i][j])throw new Exception("Incorrect turnToUp() method");
+                if(front[i][j] != defLower[i][j]) throw new Exception("Incorrect turnToUp() method");
+                if(lower[i][j] != defBack[i][j]) throw new Exception("Incorrect turnToUp() method");
+                if(back[i][j] != defUpper[i][j])throw new Exception("Incorrect turnToUp() method");
                 if(upper[i][j] != defFront[i][j]) throw new Exception("Incorrect turnToUp() method");
 
                 }
             }
         }
-
-
 
 
     @Test
@@ -177,8 +180,8 @@ class Rubicks_cubeTest {
         for(int i = 0; i<3; i++) {
             for(int j = 0; j<3; j++) {
                 if(front[i][j] != defUpper[i][j])throw new Exception("Incorrect turnToDown() method");
-                //if(upper[i][j] != defBack[i][j]) throw new Exception("Incorrect turnToDown() method" + i + " " + j);
-                //if(back[i][j] != defLower[i][j])throw new Exception("Incorrect turnToDown() method");
+                if(upper[i][j] != defBack[i][j]) throw new Exception("Incorrect turnToDown() method");
+                if(back[i][j] != defLower[i][j])throw new Exception("Incorrect turnToDown() method");
                 if(lower[i][j] != defFront[i][j]) throw new Exception("Incorrect turnToDown() method");
                 }
             }
