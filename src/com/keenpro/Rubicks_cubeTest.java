@@ -55,85 +55,135 @@ class Rubicks_cubeTest {
     }
 
     @Test
-    void turnLeft1() {
+    void turnToLeft() throws Exception {
+        Rubicks_cube defaultCube = new Rubicks_cube();
+
         Rubicks_cube cube = new Rubicks_cube();
-        cube.turnLeft1();
+        cube.turnToLeft();
 
-    }
+        String[][] front = cube.getFront();
+        String[][] back = cube.getBack();
+        String[][] left = cube.getLeft();
+        String[][] right = cube.getRight();
+        String[][] upper = cube.getUpper();
+        String[][] lower = cube.getLower();
 
-    @Test
-    void turnLeft2() {
-        Rubicks_cube cube = new Rubicks_cube();
-        cube.turnLeft2();
-    }
+        String[][] defFront = defaultCube.getFront();
+        String[][] defBack = defaultCube.getBack();
+        String[][] defLeft = defaultCube.getLeft();
+        String[][] defRight = defaultCube.getRight();
+        String[][] defUpper = defaultCube.getUpper();
+        String[][] defLower = defaultCube.getLower();
 
-    @Test
-    void turnLeft3() {
-        Rubicks_cube cube = new Rubicks_cube();
-        cube.turnLeft3();
-    }
-
-
-    @Test
-    void turnRight1() {
-        Rubicks_cube cube = new Rubicks_cube();
-        cube.turnRight1();
-    }
-
-    @Test
-    void turnRight2() {
-        Rubicks_cube cube = new Rubicks_cube();
-        cube.turnRight2();
-    }
-
-    @Test
-    void turnRight3() {
-        Rubicks_cube cube = new Rubicks_cube();
-        cube.turnRight3();
+        for(int i = 0; i<3; i++) {
+            for(int j = 0; j<3; j++) {
+                if(front[i][j]!= defRight[i][j] || right[i][j] != defBack[i][j] ||
+                        back[i][j] != defLeft[i][j] || left[i][j] != defFront[i][j]) {
+                    throw new Exception("Incorrect turnToLeft() method");
+                }
+            }
+        }
     }
 
 
     @Test
-    void turnUp1() {
+    void turnToRight() throws Exception {
+        Rubicks_cube defaultCube = new Rubicks_cube();
+
         Rubicks_cube cube = new Rubicks_cube();
-        cube.turnUp1();
+        cube.turnToRight();
+
+        String[][] front = cube.getFront();
+        String[][] back = cube.getBack();
+        String[][] left = cube.getLeft();
+        String[][] right = cube.getRight();
+        String[][] upper = cube.getUpper();
+        String[][] lower = cube.getLower();
+
+        String[][] defFront = defaultCube.getFront();
+        String[][] defBack = defaultCube.getBack();
+        String[][] defLeft = defaultCube.getLeft();
+        String[][] defRight = defaultCube.getRight();
+        String[][] defUpper = defaultCube.getUpper();
+        String[][] defLower = defaultCube.getLower();
+
+        for(int i = 0; i<3; i++) {
+            for(int j = 0; j<3; j++) {
+                if(front[i][j]!= defLeft[i][j] || right[i][j] != defFront[i][j] ||
+                        back[i][j] != defRight[i][j] || left[i][j] != defBack[i][j]) {
+                    throw new Exception("Incorrect turnToRight() method");
+                }
+            }
+        }
     }
+
 
     @Test
-    void turnUp2() {
+    void turnToUp() throws Exception {
+        Rubicks_cube defaultCube = new Rubicks_cube();
+
         Rubicks_cube cube = new Rubicks_cube();
-        cube.turnUp2();
-    }
+        cube.turnToUp();
+
+        String[][] front = cube.getFront();
+        String[][] back = cube.getBack();
+        String[][] left = cube.getLeft();
+        String[][] right = cube.getRight();
+        String[][] upper = cube.getUpper();
+        String[][] lower = cube.getLower();
+
+        String[][] defFront = defaultCube.getFront();
+        String[][] defBack = defaultCube.getBack();
+        String[][] defLeft = defaultCube.getLeft();
+        String[][] defRight = defaultCube.getRight();
+        String[][] defUpper = defaultCube.getUpper();
+        String[][] defLower = defaultCube.getLower();
+
+        for(int i = 0; i<3; i++) {
+            for(int j = 0; j<3; j++) {
+                //if(front[i][j] != defLower[2-i][j]) throw new Exception("Incorrect turnToUp() method" + front[i][j] + " "+ i + " " +j+" " + defLower[i][2-j]);
+                //if(lower[i][2-j] != defBack[i][j]) throw new Exception("Incorrect turnToUp() method" + lower[i][j] + " "+ i + " " +j+" " + defBack[i][2-j]);
+                if(back[2-i][2-j] != defUpper[i][j])throw new Exception("Incorrect turnToUp() method");
+                if(upper[i][j] != defFront[i][j]) throw new Exception("Incorrect turnToUp() method");
+
+                }
+            }
+        }
+
+
+
 
     @Test
-    void turnUp3() {
+    void turnToDown() throws Exception {
+        Rubicks_cube defaultCube = new Rubicks_cube();
+
         Rubicks_cube cube = new Rubicks_cube();
-        cube.turnUp3();
+        cube.turnToDown();
+
+        String[][] front = cube.getFront();
+        String[][] back = cube.getBack();
+        String[][] left = cube.getLeft();
+        String[][] right = cube.getRight();
+        String[][] upper = cube.getUpper();
+        String[][] lower = cube.getLower();
+
+        String[][] defFront = defaultCube.getFront();
+        String[][] defBack = defaultCube.getBack();
+        String[][] defLeft = defaultCube.getLeft();
+        String[][] defRight = defaultCube.getRight();
+        String[][] defUpper = defaultCube.getUpper();
+        String[][] defLower = defaultCube.getLower();
+
+        for(int i = 0; i<3; i++) {
+            for(int j = 0; j<3; j++) {
+                if(front[i][j] != defUpper[i][j])throw new Exception("Incorrect turnToDown() method");
+                //if(upper[i][j] != defBack[i][j]) throw new Exception("Incorrect turnToDown() method" + i + " " + j);
+                //if(back[i][j] != defLower[i][j])throw new Exception("Incorrect turnToDown() method");
+                if(lower[i][j] != defFront[i][j]) throw new Exception("Incorrect turnToDown() method");
+                }
+            }
+        }
     }
 
 
-    @Test
-    void turnDown1() {
-        Rubicks_cube cube = new Rubicks_cube();
-        cube.turnDown1();
-    }
 
-    @Test
-    void turnDown2() {
-        Rubicks_cube cube = new Rubicks_cube();
-        cube.turnDown2();
-    }
-
-    @Test
-    void turnDown3() {
-        Rubicks_cube cube = new Rubicks_cube();
-        cube.turnDown3();
-    }
-
-
-
-
-
-
-
-}

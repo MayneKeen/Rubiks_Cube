@@ -342,19 +342,6 @@ public class Rubicks_cube {
     }
 
 
-    private void standartSet() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                frontFace[i][j] = "white";
-                backFace[i][j] = "yellow";
-                leftFace[i][j] = "blue";
-                rightFace[i][j] = "red";
-                upperFace[i][j] = "orange";
-                lowerFace[i][j] = "green";
-            }
-        }
-    }
-
 
     public void turnLeft1() {
 
@@ -522,9 +509,10 @@ public class Rubicks_cube {
             String temp = frontFace[i][1];
             frontFace[i][1] = lowerFace[2-i][1];
             lowerFace[i][1] = backFace[i][1];
-            backFace[2-i][1] = rightFace[i][1];
-            rightFace[i][1] = temp;
+            backFace[2-i][1] = upperFace[i][1];
+            upperFace[i][1] = temp;
         }
+
     }
 
     public void turnUp3() {
