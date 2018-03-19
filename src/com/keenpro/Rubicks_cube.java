@@ -2,8 +2,7 @@ package com.keenpro;
 
 import java.io.*;
 import java.lang.Math;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Rubicks_cube {
 
@@ -17,6 +16,28 @@ public class Rubicks_cube {
     private String lowerFace[][] = new String[3][3];
 
 
+    public Rubicks_cube() {
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                this.frontFace[i][j] = "white";
+                this.backFace[i][j] = "yellow";
+                this.leftFace[i][j] = "blue";
+                this.rightFace[i][j] = "red";
+                this.upperFace[i][j] = "orange";
+                this.lowerFace[i][j] = "green";
+            }
+        }
+
+
+    }
+
+
+    public Map<String, Integer> counter = new HashMap();
+
+
+
+
     private int whiteCount = 9;
     private int yellowCount = 9;
     private int blueCount = 9;
@@ -25,72 +46,30 @@ public class Rubicks_cube {
     private int greenCount = 9;
 
     private void colourCounter(String colour, int times) {
-        switch (times) {
-            case 1: {
-                switch (colour) {
-                    case "white": {
-                        whiteCount--;
-                    }
-                    case "yellow": {
-                        yellowCount--;
-                    }
-                    case "blue": {
-                        blueCount--;
-                    }
-                    case "red": {
-                        redCount--;
-                    }
-                    case "orange": {
-                        orangeCount--;
-                    }
-                    case "green": {
-                        greenCount--;
-                    }
-                }
+        switch (colour) {
+            case "white": {
+                whiteCount -= times;
+                break;
             }
-            case 2: {
-                switch (colour) {
-                    case "white": {
-                        whiteCount-=2;
-                    }
-                    case "yellow": {
-                        yellowCount-=2;
-                    }
-                    case "blue": {
-                        blueCount-=2;
-                    }
-                    case "red": {
-                        redCount-=2;
-                    }
-                    case "orange": {
-                        orangeCount-=2;
-                    }
-                    case "green": {
-                        greenCount-=2;
-                    }
-                }
+            case "yellow": {
+                yellowCount -= times;
+                break;
             }
-            case 3: {
-                switch (colour) {
-                    case "white": {
-                        whiteCount-=3;
-                    }
-                    case "yellow": {
-                        yellowCount-=3;
-                    }
-                    case "blue": {
-                        blueCount-=3;
-                    }
-                    case "red": {
-                        redCount-=3;
-                    }
-                    case "orange": {
-                        orangeCount-=3;
-                    }
-                    case "green": {
-                        greenCount-=3;
-                    }
-                }
+            case "blue": {
+                blueCount -= times;
+                break;
+            }
+            case "red": {
+                redCount -= times;
+                break;
+            }
+            case "orange": {
+                orangeCount -= times;
+                break;
+            }
+            case "green": {
+                greenCount -= times;
+                break;
             }
         }
     }
@@ -296,50 +275,38 @@ public class Rubicks_cube {
     private static String randomColour(int whiteCount, int yellowCount, int blueCount,
                                        int redCount, int orangeCount, int greenCount) {
 
-        int r = (int) (Math.random() * 100);
 
-        if (r < 17 && whiteCount > 0) return "white";
-        else if (whiteCount < 1 && r < 17) return randomColour(0, yellowCount,
+
+        Random random = new Random();
+
+        int r = random.nextInt(6);
+
+        if (r == 0 && whiteCount > 0) return "white";
+        else if (whiteCount < 1 && r == 0) return randomColour(0, yellowCount,
                 blueCount, redCount, orangeCount, greenCount);
 
-        if (r < 33 && yellowCount > 0) return "yellow";
-        else if (yellowCount < 1 && r < 33) return randomColour(whiteCount, 0,
+        if (r == 1  && yellowCount > 0) return "yellow";
+        else if (yellowCount < 1 && r == 1) return randomColour(whiteCount, 0,
                 blueCount, redCount, orangeCount, greenCount);
 
-        if (r < 50 && blueCount > 0) return "blue";
-        else if (blueCount < 1 && r < 50) return randomColour(whiteCount, yellowCount,
+        if (r == 2 && blueCount > 0) return "blue";
+        else if (blueCount < 1 && r ==2) return randomColour(whiteCount, yellowCount,
                 0, redCount, orangeCount, greenCount);
 
-        if (r < 67 && redCount > 0) return "red";
-        else if (redCount < 1 && r < 67) return randomColour(whiteCount, yellowCount,
+        if (r == 3 && redCount > 0) return "red";
+        else if (redCount < 1 && r ==3) return randomColour(whiteCount, yellowCount,
                 blueCount, 0, orangeCount, greenCount);
 
-        if (r < 83 && orangeCount > 0) return "orange";
-        else if (orangeCount < 1 && r < 83) return randomColour(whiteCount, yellowCount,
+        if (r == 4 && orangeCount > 0) return "orange";
+        else if (orangeCount < 1 && r == 4) return randomColour(whiteCount, yellowCount,
                 blueCount, redCount, 0, greenCount);
 
-        if (r < 100 && greenCount > 0) return "green";
-        else if (whiteCount < 1 && r < 100) return randomColour(whiteCount, yellowCount,
+        if (r == 5 && greenCount > 0) return "green";
+        else if (whiteCount < 1 && r < 5) return randomColour(whiteCount, yellowCount,
                 blueCount, redCount, orangeCount, 0);
         return "";
     }
 
-
-    public Rubicks_cube() {
-
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                this.frontFace[i][j] = "white";
-                this.backFace[i][j] = "yellow";
-                this.leftFace[i][j] = "blue";
-                this.rightFace[i][j] = "red";
-                this.upperFace[i][j] = "orange";
-                this.lowerFace[i][j] = "green";
-            }
-        }
-
-
-    }
 
 
 
