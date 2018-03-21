@@ -334,11 +334,28 @@ public class Rubicks_cube {
 
     private static String randomColour(HashMap<String, Integer> counter) {
 
-        Random random = new Random();
+        int whiteCount = counter.get("white");
+        int yellowCount = counter.get("yellow");
+        int blueCount = counter.get("blue");
+        int redCount = counter.get("red");
+        int orangeCount = counter.get("orange");
+        int greenCount = counter.get("green");
 
+        Random random = new Random();
         int r = random.nextInt(6);
 
-        if (r == 0 && counter.get("white") > 0) return "white";
+        int[] arr =  {whiteCount, yellowCount, blueCount, redCount, orangeCount, greenCount};
+        String[] colours = {"white", "yellow", "blue", "red", "orange", "green"};
+
+        int temp = 0;
+        while (temp == 0) {
+            r = random.nextInt(6);
+            temp = arr[r];
+        }
+
+        return colours[r];
+
+        /* if (r == 0 && counter.get("white") > 0) return "white";
         else if (counter.get("white") < 1 && r == 0) return randomColour(counter);
 
         if (r == 1  && counter.get("yellow") > 0) return "yellow";
@@ -357,6 +374,7 @@ public class Rubicks_cube {
         else if (counter.get("green") < 1 && r < 5) return randomColour(counter);
 
         return "";
+        */
     }
 
 
