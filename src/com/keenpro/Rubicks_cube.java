@@ -8,67 +8,72 @@ public class Rubicks_cube {
 
     private static PrintStream out = System.out;
 
-    private String frontFace[][] = new String[3][3];
-    private String backFace[][] = new String[3][3];
-    private String leftFace[][] = new String[3][3];
-    private String rightFace[][] = new String[3][3];
-    private String upperFace[][] = new String[3][3];
-    private String lowerFace[][] = new String[3][3];
+    enum Colour {
+        white, yellow, blue, red, orange, green
+    }
 
+    private HashMap<String, Integer> counter = new HashMap();
 
     public Rubicks_cube() {
-
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                this.frontFace[i][j] = "white";
-                this.backFace[i][j] = "yellow";
-                this.leftFace[i][j] = "blue";
-                this.rightFace[i][j] = "red";
-                this.upperFace[i][j] = "orange";
-                this.lowerFace[i][j] = "green";
+                this.frontFace[i][j] = Colour.white;
+                this.backFace[i][j] = Colour.yellow;
+                this.leftFace[i][j] = Colour.blue;
+                this.rightFace[i][j] = Colour.red;
+                this.upperFace[i][j] = Colour.orange;
+                this.lowerFace[i][j] = Colour.green;
             }
         }
-
-
     }
 
 
-    public Map<String, Integer> counter = new HashMap();
+    private Colour frontFace[][] = new Colour[3][3];
+    private Colour backFace[][] = new Colour[3][3];
+    private Colour leftFace[][] = new Colour[3][3];
+    private Colour rightFace[][] = new Colour[3][3];
+    private Colour upperFace[][] = new Colour[3][3];
+    private Colour lowerFace[][] = new Colour[3][3];
 
 
 
 
-    private int whiteCount = 9;
-    private int yellowCount = 9;
-    private int blueCount = 9;
-    private int redCount = 9;
-    private int orangeCount = 9;
-    private int greenCount = 9;
-
-    private void colourCounter(String colour, int times) {
+    private void colourCounter(String colour, int times) {  //HashMap<String, Integer> map
         switch (colour) {
             case "white": {
-                whiteCount -= times;
+                int t = counter.get("white");
+                counter.remove("white");
+                counter.put("white", t-times);
                 break;
             }
             case "yellow": {
-                yellowCount -= times;
+                int t = counter.get("yellow");
+                counter.remove("yellow");
+                counter.put("yellow", t-times);
                 break;
             }
             case "blue": {
-                blueCount -= times;
+                int t = counter.get("blue");
+                counter.remove("blue");
+                counter.put("blue", t-times);
                 break;
             }
             case "red": {
-                redCount -= times;
+                int t = counter.get("red");
+                counter.remove("red");
+                counter.put("red", t-times);
                 break;
             }
             case "orange": {
-                orangeCount -= times;
+                int t = counter.get("orange");
+                counter.remove("orange");
+                counter.put("orange", t-times);
                 break;
             }
             case "green": {
-                greenCount -= times;
+                int t = counter.get("green");
+                counter.remove("green");
+                counter.put("green", t-times);
                 break;
             }
         }
@@ -76,193 +81,248 @@ public class Rubicks_cube {
 
     public void randomize() {
 
+        counter.put("white", 9);
+        counter.put("yellow", 9);
+        counter.put("blue", 9);
+        counter.put("red", 9);
+        counter.put("orange", 9);
+        counter.put("green", 9);
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
 
-                String frontColour = randomColour(whiteCount, yellowCount, blueCount,
-                        redCount, orangeCount, greenCount);
+                /*String frontColour = randomColour(whiteCount, yellowCount, blueCount,
+                  *        redCount, orangeCount, greenCount, );
+                  *String backColour = randomColour(whiteCount, yellowCount, blueCount,
+                  *        redCount, orangeCount, greenCount);
+                  *String leftColour = randomColour(whiteCount, yellowCount, blueCount,
+                  *        redCount, orangeCount, greenCount);
+                  *String rightColour = randomColour(whiteCount, yellowCount, blueCount,
+                  *        redCount, orangeCount, greenCount);
+                  *String upperColour = randomColour(whiteCount, yellowCount, blueCount,
+                  *        redCount, orangeCount, greenCount);
+                  *String lowerColour = randomColour(whiteCount, yellowCount, blueCount,
+                         redCount, orangeCount, greenCount); */
+
+
+                String frontColour = randomColour(counter);
+
+                String temp = randomColour(counter);
+
+                while(temp == frontColour) {
+                    temp = randomColour(counter);
+                }
+                String backColour = temp;
+
+                while(temp == frontColour || temp == backColour) {
+                    temp = randomColour(counter);
+                }
+                String leftColour = temp;
+
+                while (temp == frontColour || temp == backColour || temp == leftColour) {
+                    temp = randomColour(counter);
+                }
+                String rightColour = randomColour(counter);
+
+                while (temp == frontColour || temp == backColour || temp == leftColour ||
+                        temp == rightColour) {
+                    temp = randomColour(counter);
+                }
+                String upperColour = randomColour(counter);
+
+                while (temp == frontColour || temp == backColour || temp == leftColour ||
+                        temp == rightColour || temp == upperColour) {
+                    temp = randomColour(counter);
+                }
+                String lowerColour = randomColour(counter);
+
+
+
+
                 if(frontFace[i][j] == null) {
                     switch (i) {
                         case 0: {
-                            frontFace[i][j] = frontColour;
-                            upperFace[2][j] = frontColour;
-                            colourCounter(frontColour, 2);
+                            frontFace[i][j] = Colour.valueOf(frontColour);
+                            upperFace[2][j] = Colour.valueOf(upperColour);
+                            colourCounter(frontColour, 1);
+                            colourCounter(upperColour, 1);
                         }
                         case 2: {
-                            frontFace[i][j] = frontColour;
-                            lowerFace[2][j] = frontColour;
-                            colourCounter(frontColour, 2);
+                            frontFace[i][j] = Colour.valueOf(frontColour);
+                            lowerFace[2][j] = Colour.valueOf(lowerColour);
+                            colourCounter(frontColour, 1);
+                            colourCounter(lowerColour, 1);
                         }
                         case 1: {
-                            frontFace[i][j] = frontColour;
+                            frontFace[i][j] = Colour.valueOf(frontColour);
                             colourCounter(frontColour, 1);
                         }
                     }
                     switch (j) {
                         case 0:{
-                            leftFace[i][2] = frontColour;
-                            colourCounter(frontColour, 1);
+                            leftFace[i][2] = Colour.valueOf(leftColour);
+                            colourCounter(leftColour, 1);
                         }
                         case 2: {
-                            rightFace[i][0] = frontColour;
-                            colourCounter(frontColour, 1);
+                            rightFace[i][0] = Colour.valueOf(rightColour);
+                            colourCounter(rightColour, 1);
                         }
                     }
                 }
 
 
-
-                String backColour = randomColour(whiteCount, yellowCount, blueCount,
-                        redCount, orangeCount, greenCount);
                 if(backFace[i][j] == null) {
                     switch (i) {
                         case 0: {
-                            backFace[i][j] = backColour;
-                            upperFace[i][2-j] = backColour;
-                            colourCounter(backColour, 2);
+                            backFace[i][j] = Colour.valueOf(backColour);
+                            upperFace[i][2-j] = Colour.valueOf(upperColour);
+                            colourCounter(backColour, 1);
+                            colourCounter(upperColour, 1);
                         }
                         case 2: {
-                            backFace[i][j] = backColour;
-                            lowerFace[0][2-j]= backColour;
-                            colourCounter(backColour, 2);
+                            backFace[i][j] = Colour.valueOf(backColour);
+                            lowerFace[0][2-j]= Colour.valueOf(lowerColour);
+                            colourCounter(backColour, 1);
+                            colourCounter(lowerColour, 1);
                         }
                         case 1: {
-                            backFace[i][j] = backColour;
+                            backFace[i][j] = Colour.valueOf(backColour);
                             colourCounter(backColour, 1);
                         }
                     }
                     switch (j) {
                         case 0: {
-                            rightFace[i][2] = backColour;
-                            colourCounter(backColour, 1);
+                            rightFace[i][2] = Colour.valueOf(rightColour);
+                            colourCounter(rightColour, 1);
                         }
                         case 2: {
-                            leftFace[i][2] = backColour;
-                            colourCounter(backColour, 1);
+                            leftFace[i][2] = Colour.valueOf(leftColour);
+                            colourCounter(leftColour, 1);
                         }
                     }
                 }
 
-                String leftColour = randomColour(whiteCount, yellowCount, blueCount,
-                        redCount, orangeCount, greenCount);
                 if(leftFace[i][j] == null) {
                     switch (i) {
                         case 0: {
-                            leftFace[i][j] = leftColour;
-                            upperFace[j][0] = leftColour;
-                            colourCounter(leftColour, 2);
+                            leftFace[i][j] = Colour.valueOf(leftColour);
+                            upperFace[j][0] = Colour.valueOf(upperColour);
+                            colourCounter(leftColour, 1);
+                            colourCounter(upperColour, 1);
                         }
                         case 2: {
-                            leftFace[i][j] = leftColour;
-                            lowerFace[j][0] = leftColour;
-                            colourCounter(leftColour, 2);
+                            leftFace[i][j] = Colour.valueOf(leftColour);
+                            lowerFace[j][0] = Colour.valueOf(lowerColour);
+                            colourCounter(leftColour, 1);
+                            colourCounter(lowerColour, 1);
                         }
                         case 1: {
-                            leftFace[i][j] = leftColour;
+                            leftFace[i][j] = Colour.valueOf(leftColour);
                             colourCounter(leftColour, 1);
                         }
                     }
                     switch (j) {
                         case 0: {
-                            backFace[i][2] = leftColour;
-                            colourCounter(leftColour, 1);
+                            backFace[i][2] = Colour.valueOf(backColour);
+                            colourCounter(backColour, 1);
                         }
                         case 2: {
-                            frontFace[i][0] = leftColour;
+                            frontFace[i][0] = Colour.valueOf(leftColour);
                             colourCounter(leftColour, 1);
                         }
                     }
                 }
 
-                String rightColour = randomColour(whiteCount, yellowCount, blueCount,
-                        redCount, orangeCount, greenCount);
+
                 if(rightFace[i][j] == null) {
                     switch (i) {
                         case 0: {
-                            rightFace[i][j] = rightColour;
-                            upperFace[j][2] = rightColour;
-                            colourCounter(rightColour, 2);
+                            rightFace[i][j] = Colour.valueOf(rightColour);
+                            upperFace[j][2] = Colour.valueOf(upperColour);
+                            colourCounter(rightColour, 1);
+                            colourCounter(upperColour, 1);
                         }
                         case 2: {
-                            rightFace[i][j] = rightColour;
-                            lowerFace[j][2] = rightColour;
-                            colourCounter(rightColour, 2);
+                            rightFace[i][j] = Colour.valueOf(rightColour);
+                            lowerFace[j][2] = Colour.valueOf(lowerColour);
+                            colourCounter(rightColour, 1);
+                            colourCounter(lowerColour, 1);
                         }
                         case 1: {
-                            rightFace[i][j] = rightColour;
+                            rightFace[i][j] = Colour.valueOf(rightColour);
                             colourCounter(rightColour, 1);
                         }
                     }
                     switch (j) {
                         case 0: {
-                            frontFace[i][2] = rightColour;
-                            colourCounter(rightColour, 1);
+                            frontFace[i][2] = Colour.valueOf(frontColour);
+                            colourCounter(frontColour, 1);
                         }
                         case 2: {
-                            backFace[i][0] = rightColour;
-                            colourCounter(rightColour, 1);
-                        }
-                    }
-                }
-                String upperColour = randomColour(whiteCount, yellowCount, blueCount,
-                        redCount, orangeCount, greenCount);
-                if(upperFace[i][j] == null) {
-                    switch (i) {
-                        case 0: {
-                            upperFace[i][j] = upperColour;
-                            backFace[0][2-j] = upperColour;
-                            colourCounter(upperColour, 2);
-                        }
-                        case 2: {
-                            upperFace[i][j] = upperColour;
-                            frontFace[0][j] = upperColour;
-                            colourCounter(upperColour, 2);
-                        }
-                        case 1: {
-                            upperFace[i][j] = upperColour;
-                            colourCounter(upperColour, 1);
-                        }
-                    }
-                    switch (j) {
-                        case 0: {
-                            leftFace[0][i] = upperColour;
-                            colourCounter(upperColour, 1);
-                        }
-                        case 2: {
-                            rightFace[0][2-i] = upperColour;
-                            colourCounter(upperColour, 1);
+                            backFace[i][0] = Colour.valueOf(backColour);
+                            colourCounter(backColour, 1);
                         }
                     }
                 }
 
-                String lowerColour = randomColour(whiteCount, yellowCount, blueCount,
-                        redCount, orangeCount, greenCount);
+                if(upperFace[i][j] == null) {
+                    switch (i) {
+                        case 0: {
+                            upperFace[i][j] = Colour.valueOf(upperColour);
+                            backFace[0][2-j] = Colour.valueOf(backColour);
+                            colourCounter(upperColour, 1);
+                            colourCounter(backColour, 1);
+                        }
+                        case 2: {
+                            upperFace[i][j] = Colour.valueOf(upperColour);
+                            frontFace[0][j] = Colour.valueOf(frontColour);
+                            colourCounter(upperColour, 1);
+                            colourCounter(frontColour, 1);
+                        }
+                        case 1: {
+                            upperFace[i][j] = Colour.valueOf(upperColour);
+                            colourCounter(upperColour, 1);
+                        }
+                    }
+                    switch (j) {
+                        case 0: {
+                            leftFace[0][i] = Colour.valueOf(leftColour);
+                            colourCounter(leftColour, 1);
+                        }
+                        case 2: {
+                            rightFace[0][2-i] = Colour.valueOf(rightColour);
+                            colourCounter(rightColour, 1);
+                        }
+                    }
+                }
+
                 if(lowerFace[i][j] == null) {
                     switch (i) {
                         case 0: {
-                            lowerFace[i][j] = lowerColour;
-                            backFace[2][2-j] = lowerColour;
-                            colourCounter(lowerColour, 2);
+                            lowerFace[i][j] = Colour.valueOf(lowerColour);
+                            backFace[2][2-j] = Colour.valueOf(backColour);
+                            colourCounter(lowerColour, 1);
+                            colourCounter(backColour, 1);
                         }
                         case 2: {
-                            lowerFace[i][j] = lowerColour;
-                            frontFace[2][j] = lowerColour;
-                            colourCounter(lowerColour, 2);
+                            lowerFace[i][j] = Colour.valueOf(lowerColour);
+                            frontFace[2][j] = Colour.valueOf(frontColour);
+                            colourCounter(lowerColour, 1);
+                            colourCounter(frontColour, 1);
                         }
                         case 1: {
-                            lowerFace[i][j] = lowerColour;
+                            lowerFace[i][j] = Colour.valueOf(lowerColour);
                             colourCounter(lowerColour, 1);
                         }
                     }
                     switch (j) {
                         case 0: {
-                            leftFace[2][i] = lowerColour;
-                            colourCounter(lowerColour, 1);
+                            leftFace[2][i] = Colour.valueOf(leftColour);
+                            colourCounter(leftColour, 1);
                         }
                         case 2: {
-                            rightFace[2][2-i] = lowerColour;
-                            colourCounter(lowerColour, 1);
+                            rightFace[2][2-i] = Colour.valueOf(rightColour);
+                            colourCounter(rightColour, 1);
                         }
                     }
                 }
@@ -272,38 +332,30 @@ public class Rubicks_cube {
     }
 
 
-    private static String randomColour(int whiteCount, int yellowCount, int blueCount,
-                                       int redCount, int orangeCount, int greenCount) {
-
-
+    private static String randomColour(HashMap<String, Integer> counter) {
 
         Random random = new Random();
 
         int r = random.nextInt(6);
 
-        if (r == 0 && whiteCount > 0) return "white";
-        else if (whiteCount < 1 && r == 0) return randomColour(0, yellowCount,
-                blueCount, redCount, orangeCount, greenCount);
+        if (r == 0 && counter.get("white") > 0) return "white";
+        else if (counter.get("white") < 1 && r == 0) return randomColour(counter);
 
-        if (r == 1  && yellowCount > 0) return "yellow";
-        else if (yellowCount < 1 && r == 1) return randomColour(whiteCount, 0,
-                blueCount, redCount, orangeCount, greenCount);
+        if (r == 1  && counter.get("yellow") > 0) return "yellow";
+        else if (counter.get("yellow") < 1 && r == 1) return randomColour(counter);
 
-        if (r == 2 && blueCount > 0) return "blue";
-        else if (blueCount < 1 && r ==2) return randomColour(whiteCount, yellowCount,
-                0, redCount, orangeCount, greenCount);
+        if (r == 2 && counter.get("blue") > 0) return "blue";
+        else if (counter.get("blue") < 1 && r ==2) return randomColour(counter);
 
-        if (r == 3 && redCount > 0) return "red";
-        else if (redCount < 1 && r ==3) return randomColour(whiteCount, yellowCount,
-                blueCount, 0, orangeCount, greenCount);
+        if (r == 3 && counter.get("red") > 0) return "red";
+        else if (counter.get("red") < 1 && r ==3) return randomColour(counter);
 
-        if (r == 4 && orangeCount > 0) return "orange";
-        else if (orangeCount < 1 && r == 4) return randomColour(whiteCount, yellowCount,
-                blueCount, redCount, 0, greenCount);
+        if (r == 4 && counter.get("orange") > 0) return "orange";
+        else if (counter.get("orange") < 1 && r == 4) return randomColour(counter);
 
-        if (r == 5 && greenCount > 0) return "green";
-        else if (whiteCount < 1 && r < 5) return randomColour(whiteCount, yellowCount,
-                blueCount, redCount, orangeCount, 0);
+        if (r == 5 && counter.get("green") > 0) return "green";
+        else if (counter.get("green") < 1 && r < 5) return randomColour(counter);
+
         return "";
     }
 
@@ -313,14 +365,14 @@ public class Rubicks_cube {
     public void turnLeft1() {
 
         for (int j = 0; j < 3; j++) {
-            String temp = frontFace[1][j];
+            Colour temp = frontFace[1][j];
             frontFace[0][j] = rightFace[0][j];
             rightFace[0][j] = backFace[0][j];
             backFace[0][j] = leftFace[0][j];
             leftFace[0][j] = temp;
         }
-        String a = upperFace[2][0];
-        String b = upperFace[2][1];
+        Colour a = upperFace[2][0];
+        Colour b = upperFace[2][1];
 
         upperFace[2][0] = upperFace[2][2];
         upperFace[2][1] = upperFace[1][2];
@@ -337,7 +389,7 @@ public class Rubicks_cube {
 
     public void turnLeft2() {
         for (int j = 0; j < 3; j++) {
-            String temp = frontFace[1][j];
+            Colour temp = frontFace[1][j];
             frontFace[1][j] = rightFace[1][j];
             rightFace[1][j] = backFace[1][j];
             backFace[1][j] = leftFace[1][j];
@@ -347,14 +399,14 @@ public class Rubicks_cube {
 
     public void turnLeft3() {
         for (int j = 0; j < 3; j++) {
-            String temp = frontFace[2][j];
+            Colour temp = frontFace[2][j];
             frontFace[2][j] = rightFace[2][j];
             rightFace[2][j] = backFace[2][j];
             backFace[2][j] = leftFace[2][j];
             leftFace[2][j] = temp;
         }
-        String a = lowerFace[2][0];
-        String b = lowerFace[2][1];
+        Colour a = lowerFace[2][0];
+        Colour b = lowerFace[2][1];
 
         lowerFace[2][0] = lowerFace[2][2];
         lowerFace[2][1] = lowerFace[1][2];
@@ -383,14 +435,14 @@ public class Rubicks_cube {
 
     public void turnRight1() {
         for(int j=0; j<3; j++) {
-            String temp = frontFace[0][j];
+            Colour temp = frontFace[0][j];
             frontFace[0][j] = leftFace[0][j];
             leftFace[0][j] = backFace[0][j];
             backFace[0][j] = rightFace[0][j];
             rightFace[0][j] = temp;
         }
-        String a = upperFace[2][1];
-        String b = upperFace[2][2];
+        Colour a = upperFace[2][1];
+        Colour b = upperFace[2][2];
 
         upperFace[2][2] = upperFace[2][0];
         upperFace[2][1] = upperFace[1][0];
@@ -406,7 +458,7 @@ public class Rubicks_cube {
 
     public void turnRight2() {
         for(int j=0; j<3; j++) {
-            String temp = frontFace[1][j];
+            Colour temp = frontFace[1][j];
             frontFace[1][j] = leftFace[1][j];
             leftFace[1][j] = backFace[1][j];
             backFace[1][j] = rightFace[1][j];
@@ -416,14 +468,14 @@ public class Rubicks_cube {
 
     public void turnRight3() {
         for(int j=0; j<3; j++) {
-            String temp = frontFace[2][j];
+            Colour temp = frontFace[2][j];
             frontFace[2][j] = leftFace[2][j];
             leftFace[2][j] = backFace[2][j];
             backFace[2][j] = rightFace[2][j];
             rightFace[2][j] = temp;
         }
-        String a = upperFace[2][0];
-        String b = upperFace[2][1];
+        Colour a = upperFace[2][0];
+        Colour b = upperFace[2][1];
 
         upperFace[2][0] = upperFace[2][2];
         upperFace[2][1] = upperFace[1][2];
@@ -450,14 +502,14 @@ public class Rubicks_cube {
 
     public void turnUp1() {
         for(int i = 0; i<3; i++) {
-            String temp = frontFace[i][0];
+            Colour temp = frontFace[i][0];
             frontFace[i][0] = lowerFace[i][0];
             lowerFace[i][0] = backFace[i][0];
             backFace[i][0] = upperFace[i][0];
             upperFace[i][0] = temp;
         }
-        String a = leftFace[2][1];
-        String b = leftFace[2][2];
+        Colour a = leftFace[2][1];
+        Colour b = leftFace[2][2];
 
         leftFace[2][2] = leftFace[2][0];
         leftFace[2][1] = leftFace[1][0];
@@ -473,7 +525,7 @@ public class Rubicks_cube {
 
     public void turnUp2() {
         for(int i = 0; i<3; i++) {
-            String temp = frontFace[i][1];
+            Colour temp = frontFace[i][1];
             frontFace[i][1] = lowerFace[i][1];
             lowerFace[i][1] = backFace[i][1];
             backFace[i][1] = upperFace[i][1];
@@ -484,14 +536,14 @@ public class Rubicks_cube {
 
     public void turnUp3() {
         for(int i = 0; i<3; i++) {
-            String temp = frontFace[i][2];
+            Colour temp = frontFace[i][2];
             frontFace[i][2] = lowerFace[i][2];
             lowerFace[i][2] = backFace[i][2];
             backFace[i][2] = upperFace[i][2];
             upperFace[i][2] = temp;
         }
-        String a = rightFace[2][0];
-        String b = rightFace[2][1];
+        Colour a = rightFace[2][0];
+        Colour b = rightFace[2][1];
 
         rightFace[2][0] = rightFace[2][2];
         rightFace[2][1] = rightFace[1][2];
@@ -519,14 +571,14 @@ public class Rubicks_cube {
 
     public void turnDown1() {
         for(int i=0; i<3;i++) {
-            String temp = frontFace[i][0];
+            Colour temp = frontFace[i][0];
             frontFace[i][0] = upperFace[i][0];
             upperFace[i][0] = backFace[i][0];
             backFace[i][0] = lowerFace[i][0];
             lowerFace[i][0] = temp;
         }
-        String a = leftFace[2][0];
-        String b = leftFace[2][1];
+        Colour a = leftFace[2][0];
+        Colour b = leftFace[2][1];
 
         leftFace[2][0] = leftFace[2][2];
         leftFace[2][1] = leftFace[1][2];
@@ -542,7 +594,7 @@ public class Rubicks_cube {
 
     public void turnDown2() {
         for(int i=0; i<3;i++) {
-            String temp = frontFace[i][1];
+            Colour temp = frontFace[i][1];
             frontFace[i][1] = upperFace[i][1];
             upperFace[i][1] = backFace[i][1];
             backFace[i][1] = lowerFace[i][1];
@@ -552,14 +604,14 @@ public class Rubicks_cube {
 
     public void turnDown3() {
         for(int i=0; i<3;i++) {
-            String temp = frontFace[i][2];
+            Colour temp = frontFace[i][2];
             frontFace[i][2] = upperFace[i][2];
             upperFace[i][2] = backFace[i][2];
             backFace[i][2] = lowerFace[i][2];
             lowerFace[i][2] = temp;
         }
-        String a = rightFace[2][1];
-        String b = rightFace[2][2];
+        Colour a = rightFace[2][1];
+        Colour b = rightFace[2][2];
 
         rightFace[2][2] = rightFace[2][0];
         rightFace[2][1] = rightFace[1][0];
@@ -583,32 +635,32 @@ public class Rubicks_cube {
 
 
 
-    public String[][] getFront() {
+    public Colour[][] getFront() {
         return frontFace;
     }
 
-    public String[][] getBack() {
+    public Colour[][] getBack() {
         return backFace;
     }
 
-    public String[][] getLeft() {
+    public Colour[][] getLeft() {
         return  leftFace;
     }
 
-    public String[][] getRight() {
+    public Colour[][] getRight() {
         return rightFace;
     }
 
-    public String[][] getUpper() {
+    public Colour[][] getUpper() {
         return upperFace;
     }
 
-    public String[][] getLower() {
+    public Colour[][] getLower() {
         return lowerFace;
     }
 
-    public List<String[][]> getAll() {
-        List<String[][]> result = new ArrayList<String[][]>();
+    public List<Colour[][]> getAll() {
+        List<Colour[][]> result = new ArrayList<Colour[][]>();
         result.add(getFront());
         result.add(getBack());
         result.add(getLeft());
