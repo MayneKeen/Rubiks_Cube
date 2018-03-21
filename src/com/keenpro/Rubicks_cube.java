@@ -38,45 +38,10 @@ public class Rubicks_cube {
 
 
 
-    private void colourCounter(String colour, int times) {  //HashMap<String, Integer> map
-        switch (colour) {
-            case "white": {
-                int t = counter.get("white");
-                counter.remove("white");
-                counter.put("white", t-times);
-                break;
-            }
-            case "yellow": {
-                int t = counter.get("yellow");
-                counter.remove("yellow");
-                counter.put("yellow", t-times);
-                break;
-            }
-            case "blue": {
-                int t = counter.get("blue");
-                counter.remove("blue");
-                counter.put("blue", t-times);
-                break;
-            }
-            case "red": {
-                int t = counter.get("red");
-                counter.remove("red");
-                counter.put("red", t-times);
-                break;
-            }
-            case "orange": {
-                int t = counter.get("orange");
-                counter.remove("orange");
-                counter.put("orange", t-times);
-                break;
-            }
-            case "green": {
-                int t = counter.get("green");
-                counter.remove("green");
-                counter.put("green", t-times);
-                break;
-            }
-        }
+    private void colourCounter(String colour, int times) {
+        int t = counter.get(colour);
+        counter.remove(colour);
+        counter.put(colour, t-times);
     }
 
     public void randomize() {
@@ -146,26 +111,31 @@ public class Rubicks_cube {
                             upperFace[2][j] = Colour.valueOf(upperColour);
                             colourCounter(frontColour, 1);
                             colourCounter(upperColour, 1);
+                            break;
                         }
                         case 2: {
                             frontFace[i][j] = Colour.valueOf(frontColour);
                             lowerFace[2][j] = Colour.valueOf(lowerColour);
                             colourCounter(frontColour, 1);
                             colourCounter(lowerColour, 1);
+                            break;
                         }
                         case 1: {
                             frontFace[i][j] = Colour.valueOf(frontColour);
                             colourCounter(frontColour, 1);
+                            break;
                         }
                     }
                     switch (j) {
                         case 0:{
                             leftFace[i][2] = Colour.valueOf(leftColour);
                             colourCounter(leftColour, 1);
+                            break;
                         }
                         case 2: {
                             rightFace[i][0] = Colour.valueOf(rightColour);
                             colourCounter(rightColour, 1);
+                            break;
                         }
                     }
                 }
@@ -178,26 +148,31 @@ public class Rubicks_cube {
                             upperFace[i][2-j] = Colour.valueOf(upperColour);
                             colourCounter(backColour, 1);
                             colourCounter(upperColour, 1);
+                            break;
                         }
                         case 2: {
                             backFace[i][j] = Colour.valueOf(backColour);
                             lowerFace[0][2-j]= Colour.valueOf(lowerColour);
                             colourCounter(backColour, 1);
                             colourCounter(lowerColour, 1);
+                            break;
                         }
                         case 1: {
                             backFace[i][j] = Colour.valueOf(backColour);
                             colourCounter(backColour, 1);
+                            break;
                         }
                     }
                     switch (j) {
                         case 0: {
                             rightFace[i][2] = Colour.valueOf(rightColour);
                             colourCounter(rightColour, 1);
+                            break;
                         }
                         case 2: {
                             leftFace[i][2] = Colour.valueOf(leftColour);
                             colourCounter(leftColour, 1);
+                            break;
                         }
                     }
                 }
@@ -209,26 +184,31 @@ public class Rubicks_cube {
                             upperFace[j][0] = Colour.valueOf(upperColour);
                             colourCounter(leftColour, 1);
                             colourCounter(upperColour, 1);
+                            break;
                         }
                         case 2: {
                             leftFace[i][j] = Colour.valueOf(leftColour);
                             lowerFace[j][0] = Colour.valueOf(lowerColour);
                             colourCounter(leftColour, 1);
                             colourCounter(lowerColour, 1);
+                            break;
                         }
                         case 1: {
                             leftFace[i][j] = Colour.valueOf(leftColour);
                             colourCounter(leftColour, 1);
+                            break;
                         }
                     }
                     switch (j) {
                         case 0: {
                             backFace[i][2] = Colour.valueOf(backColour);
                             colourCounter(backColour, 1);
+                            break;
                         }
                         case 2: {
                             frontFace[i][0] = Colour.valueOf(leftColour);
                             colourCounter(leftColour, 1);
+                            break;
                         }
                     }
                 }
@@ -241,26 +221,31 @@ public class Rubicks_cube {
                             upperFace[j][2] = Colour.valueOf(upperColour);
                             colourCounter(rightColour, 1);
                             colourCounter(upperColour, 1);
+                            break;
                         }
                         case 2: {
                             rightFace[i][j] = Colour.valueOf(rightColour);
                             lowerFace[j][2] = Colour.valueOf(lowerColour);
                             colourCounter(rightColour, 1);
                             colourCounter(lowerColour, 1);
+                            break;
                         }
                         case 1: {
                             rightFace[i][j] = Colour.valueOf(rightColour);
                             colourCounter(rightColour, 1);
+                            break;
                         }
                     }
                     switch (j) {
                         case 0: {
                             frontFace[i][2] = Colour.valueOf(frontColour);
                             colourCounter(frontColour, 1);
+                            break;
                         }
                         case 2: {
                             backFace[i][0] = Colour.valueOf(backColour);
                             colourCounter(backColour, 1);
+                            break;
                         }
                     }
                 }
@@ -272,26 +257,31 @@ public class Rubicks_cube {
                             backFace[0][2-j] = Colour.valueOf(backColour);
                             colourCounter(upperColour, 1);
                             colourCounter(backColour, 1);
+                            break;
                         }
                         case 2: {
                             upperFace[i][j] = Colour.valueOf(upperColour);
                             frontFace[0][j] = Colour.valueOf(frontColour);
                             colourCounter(upperColour, 1);
                             colourCounter(frontColour, 1);
+                            break;
                         }
                         case 1: {
                             upperFace[i][j] = Colour.valueOf(upperColour);
                             colourCounter(upperColour, 1);
+                            break;
                         }
                     }
                     switch (j) {
                         case 0: {
                             leftFace[0][i] = Colour.valueOf(leftColour);
                             colourCounter(leftColour, 1);
+                            break;
                         }
                         case 2: {
                             rightFace[0][2-i] = Colour.valueOf(rightColour);
                             colourCounter(rightColour, 1);
+                            break;
                         }
                     }
                 }
@@ -303,26 +293,31 @@ public class Rubicks_cube {
                             backFace[2][2-j] = Colour.valueOf(backColour);
                             colourCounter(lowerColour, 1);
                             colourCounter(backColour, 1);
+                            break;
                         }
                         case 2: {
                             lowerFace[i][j] = Colour.valueOf(lowerColour);
                             frontFace[2][j] = Colour.valueOf(frontColour);
                             colourCounter(lowerColour, 1);
                             colourCounter(frontColour, 1);
+                            break;
                         }
                         case 1: {
                             lowerFace[i][j] = Colour.valueOf(lowerColour);
                             colourCounter(lowerColour, 1);
+                            break;
                         }
                     }
                     switch (j) {
                         case 0: {
                             leftFace[2][i] = Colour.valueOf(leftColour);
                             colourCounter(leftColour, 1);
+                            break;
                         }
                         case 2: {
                             rightFace[2][2-i] = Colour.valueOf(rightColour);
                             colourCounter(rightColour, 1);
+                            break;
                         }
                     }
                 }
