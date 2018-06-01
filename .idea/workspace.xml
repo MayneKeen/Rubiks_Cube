@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09f2b749-3d90-4406-96a9-405a50293fbf" name="Default" comment="" />
+    <list default="true" id="09f2b749-3d90-4406-96a9-405a50293fbf" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/keenpro/Rubicks_cube.java" afterPath="$PROJECT_DIR$/src/com/keenpro/Rubicks_cube.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,8 +18,8 @@
       <file leaf-file-name="Rubicks_cube.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/keenpro/Rubicks_cube.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="119" column="4" lean-forward="false" selection-start-line="119" selection-start-column="4" selection-end-line="119" selection-end-column="4" />
+            <state relative-caret-position="303">
+              <caret line="327" column="0" lean-forward="false" selection-start-line="327" selection-start-column="0" selection-end-line="327" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Rubicks_cube#0;class#Rubicks_cube#0" expanded="false" />
@@ -32,12 +35,11 @@
                 <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
                 <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
                 <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
-                <element signature="method#turnDown1#0;class#Rubicks_cube#0" expanded="false" />
                 <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
                 <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
                 <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
                 <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
-                <element signature="e#11018#11030#0" expanded="true" />
+                <element signature="e#11037#11049#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -95,11 +97,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="679" />
-    <option name="y" value="-2" />
-    <option name="width" value="800" />
-    <option name="height" value="860" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="100" />
+    <option name="y" value="20" />
+    <option name="width" value="1400" />
+    <option name="height" value="820" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -117,10 +119,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -148,6 +149,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -178,7 +180,6 @@
   </component>
   <component name="RunManager" selected="JUnit.Rubicks_cubeTest">
     <configuration name="All in Rubik's_Cube" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" runner="idea" />
       <module name="Rubik's_Cube" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -189,23 +190,21 @@
       <option name="VM_PARAMETERS" value="" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="" />
-      <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
-      <envs />
-      <fork_mode value="method" />
       <patterns />
+      <fork_mode value="method" />
     </configuration>
     <configuration name="Rubicks_cubeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <module name="Rubik's_Cube" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.keenpro.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <module name="Rubik's_Cube" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.keenpro" />
@@ -215,22 +214,20 @@
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
-      <envs />
       <patterns />
     </configuration>
     <configuration name="Rubicks_cubeTest.turnToDown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <module name="Rubik's_Cube" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.keenpro.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <module name="Rubik's_Cube" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.keenpro" />
@@ -240,22 +237,20 @@
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
-      <envs />
       <patterns />
     </configuration>
     <configuration name="Rubicks_cubeTest.turnToLeft" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <module name="Rubik's_Cube" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.keenpro.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <module name="Rubik's_Cube" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.keenpro" />
@@ -265,22 +260,20 @@
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
-      <envs />
       <patterns />
     </configuration>
     <configuration name="Rubicks_cubeTest.turnToRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <module name="Rubik's_Cube" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.keenpro.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <module name="Rubik's_Cube" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.keenpro" />
@@ -290,22 +283,20 @@
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
-      <envs />
       <patterns />
     </configuration>
     <configuration name="Rubicks_cubeTest.turnToUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <module name="Rubik's_Cube" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.keenpro.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <module name="Rubik's_Cube" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.keenpro" />
@@ -315,12 +306,33 @@
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
-      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="com.keenpro in Rubik's_Cube" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="Rubik's_Cube" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.keenpro.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.keenpro" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
       <patterns />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -338,52 +350,24 @@
       <envs />
       <method />
     </configuration>
-    <configuration name="com.keenpro in Rubik's_Cube" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.keenpro.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="Rubik's_Cube" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.keenpro" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <list size="7">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.com.keenpro in Rubik's_Cube" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.All in Rubik's_Cube" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.Rubicks_cubeTest.turnToLeft" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.Rubicks_cubeTest.turnToRight" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.Rubicks_cubeTest.turnToUp" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.Rubicks_cubeTest.turnToDown" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.Rubicks_cubeTest" />
+    <list>
+      <item itemvalue="JUnit.com.keenpro in Rubik's_Cube" />
+      <item itemvalue="JUnit.All in Rubik's_Cube" />
+      <item itemvalue="JUnit.Rubicks_cubeTest.turnToLeft" />
+      <item itemvalue="JUnit.Rubicks_cubeTest.turnToRight" />
+      <item itemvalue="JUnit.Rubicks_cubeTest.turnToUp" />
+      <item itemvalue="JUnit.Rubicks_cubeTest.turnToDown" />
+      <item itemvalue="JUnit.Rubicks_cubeTest" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.Rubicks_cubeTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.Rubicks_cubeTest.turnToDown" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.Rubicks_cubeTest.turnToUp" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.Rubicks_cubeTest.turnToRight" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.Rubicks_cubeTest.turnToLeft" />
+      <list>
+        <item itemvalue="JUnit.Rubicks_cubeTest" />
+        <item itemvalue="JUnit.Rubicks_cubeTest.turnToDown" />
+        <item itemvalue="JUnit.Rubicks_cubeTest.turnToUp" />
+        <item itemvalue="JUnit.Rubicks_cubeTest.turnToRight" />
+        <item itemvalue="JUnit.Rubicks_cubeTest.turnToLeft" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -502,7 +486,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -512,8 +496,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -559,7 +543,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/keenpro/Rubicks_cube.java</url>
-          <line>216</line>
+          <line>215</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
@@ -591,12 +575,11 @@
             <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="method#turnDown1#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="e#11018#11030#0" expanded="true" />
+            <element signature="e#11037#11049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -630,12 +613,11 @@
             <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="method#turnDown1#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="e#11018#11030#0" expanded="true" />
+            <element signature="e#11037#11049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -669,12 +651,87 @@
             <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="method#turnDown1#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="e#11018#11030#0" expanded="true" />
+            <element signature="e#11037#11049#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/keenpro/Rubicks_cubeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/keenpro/Rubicks_cube.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Rubicks_cube#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnLeft1#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnLeft2#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnLeft3#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnToLeft#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnRight1#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnRight2#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnRight3#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnToRight#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnUp1#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="e#11037#11049#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/keenpro/Rubicks_cubeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/keenpro/Rubicks_cube.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Rubicks_cube#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnLeft1#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnLeft2#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnLeft3#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnToLeft#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnRight1#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnRight2#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnRight3#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnToRight#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnUp1#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
+            <element signature="e#11037#11049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -708,12 +765,11 @@
             <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="method#turnDown1#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="e#11018#11030#0" expanded="true" />
+            <element signature="e#11037#11049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -747,12 +803,11 @@
             <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="method#turnDown1#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="e#11018#11030#0" expanded="true" />
+            <element signature="e#11037#11049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -786,12 +841,11 @@
             <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="method#turnDown1#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="e#11018#11030#0" expanded="true" />
+            <element signature="e#11037#11049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -825,12 +879,11 @@
             <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="method#turnDown1#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="e#11018#11030#0" expanded="true" />
+            <element signature="e#11037#11049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -864,12 +917,11 @@
             <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="method#turnDown1#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="e#11018#11030#0" expanded="true" />
+            <element signature="e#11037#11049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -893,12 +945,11 @@
             <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="method#turnDown1#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="e#11018#11030#0" expanded="true" />
+            <element signature="e#11037#11049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -922,12 +973,11 @@
             <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="method#turnDown1#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="e#11018#11030#0" expanded="true" />
+            <element signature="e#11037#11049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -951,12 +1001,11 @@
             <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="method#turnDown1#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="e#11018#11030#0" expanded="true" />
+            <element signature="e#11037#11049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -980,12 +1029,11 @@
             <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="method#turnDown1#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="e#11018#11030#0" expanded="true" />
+            <element signature="e#11037#11049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1009,12 +1057,11 @@
             <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="method#turnDown1#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="e#11018#11030#0" expanded="true" />
+            <element signature="e#11037#11049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1038,12 +1085,11 @@
             <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="method#turnDown1#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="e#11018#11030#0" expanded="true" />
+            <element signature="e#11037#11049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1067,8 +1113,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/keenpro/Rubicks_cube.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="119" column="4" lean-forward="false" selection-start-line="119" selection-start-column="4" selection-end-line="119" selection-end-column="4" />
+        <state relative-caret-position="303">
+          <caret line="327" column="0" lean-forward="false" selection-start-line="327" selection-start-column="0" selection-end-line="327" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Rubicks_cube#0;class#Rubicks_cube#0" expanded="false" />
@@ -1084,12 +1130,11 @@
             <element signature="method#turnUp2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnUp3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToUp#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="method#turnDown1#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown2#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnDown3#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#turnToDown#0;class#Rubicks_cube#0" expanded="false" />
             <element signature="method#getAll#0;class#Rubicks_cube#0" expanded="false" />
-            <element signature="e#11018#11030#0" expanded="true" />
+            <element signature="e#11037#11049#0" expanded="true" />
           </folding>
         </state>
       </provider>
