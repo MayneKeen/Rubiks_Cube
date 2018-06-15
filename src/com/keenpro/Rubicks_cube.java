@@ -23,8 +23,13 @@ public class Rubicks_cube {
                 this.lowerFace[i][j] = Colour.green;
             }
         }
+       putFaces();
     }
 
+
+
+
+    private HashMap<String, Colour[][]> cube = new HashMap<>();
 
     private Colour frontFace[][] = new Colour[3][3];
     private Colour backFace[][] = new Colour[3][3];
@@ -34,25 +39,45 @@ public class Rubicks_cube {
     private Colour lowerFace[][] = new Colour[3][3];
 
 
+   private void putFaces() {
+       cube.put("front", frontFace);
+       cube.put("back", backFace);
+       cube.put("left", leftFace);
+       cube.put("right", rightFace);
+       cube.put("upper", upperFace);
+       cube.put("lower", lowerFace);
+   }
+
+
 
     public static Colour[][] transposeLeft(Colour[][] face) {
-        Colour[][] result = face;
-        for(int i=0; i<3; i++) {
-            for (int j = 0; j < 3; j++) {
-                result[i][j] = face[j][2-i];
+        int m = 3;
+        int p = m/2;
+        for(int i = 0; i < m/2; i++) {
+            for (int j = i; j < m - 1 - i; j++) {
+                Colour tmp = face[i][j];
+                face[i][j] = face[m-j-1][i];
+                face[m-j-1][i] = face[m-i-1][m-j-1];
+                face[m-i-1][m-j-1] = face[j][m-i-1];
+                face[j][m-i-1] = tmp;
             }
         }
-        return result;
+        return face;
     }
 
     public static Colour[][] transposeRight(Colour[][] face) {
-        Colour[][] result = face;
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                result[i][j] = face[2 - j][i];
+        int m = 3;
+        int p = m/2;
+        for(int i = 0; i < m/2; i++) {
+            for (int j = i; j < m - 1 - i; j++) {
+                Colour tmp = face[i][j];
+                face[i][j] = face[j][m-i-1];
+                face[j][m-i-1] = face[m-i-1][m-j-1];
+                face[m-i-1][m-j-1] = face[m-j-1][i];
+                face[m-j-1][i]=tmp;
             }
         }
-        return result;
+        return face;
     }
 
 
@@ -135,6 +160,42 @@ public class Rubicks_cube {
                     }
                     break;
                 }
+
+                case 4: {
+                    switch (b) {
+                        case 0: {
+                            turnPlaneRight1();
+                            break;
+                        }
+                        case 1: {
+                            turnPlaneRight2();
+                            break;
+                        }
+                        case 2: {
+                            turnPlaneRight3();
+                            break;
+                        }
+                    }
+                    break;
+                }
+
+                case 5: {
+                    switch (b) {
+                        case 0: {
+                            turnPlaneLeft1();
+                            break;
+                        }
+                        case 1: {
+                            turnPlaneLeft2();
+                            break;
+                        }
+                        case 2: {
+                            turnPlaneLeft3();
+                            break;
+                        }
+                    }
+                    break;
+                }
             }
         }
     }
@@ -152,6 +213,7 @@ public class Rubicks_cube {
             leftFace[0][j] = temp;
         }
         upperFace = transposeLeft(upperFace);
+        putFaces();
     }
 
     public void turnLeft2() {
@@ -162,6 +224,7 @@ public class Rubicks_cube {
             backFace[1][j] = leftFace[1][j];
             leftFace[1][j] = temp;
         }
+        putFaces();
     }
 
     public void turnLeft3() {
@@ -173,13 +236,20 @@ public class Rubicks_cube {
             leftFace[2][j] = temp;
         }
         lowerFace = transposeRight(lowerFace);
+        putFaces();
     }
 
 
     public void turnToLeft() {
-        turnLeft1();
-        turnLeft2();
-        turnLeft3();
+        upperFace = transposeLeft(upperFace);
+        lowerFace = transposeRight(lowerFace);
+
+        Colour[][] temp = frontFace;
+        frontFace = rightFace;
+        rightFace = backFace;
+        backFace = leftFace;
+        leftFace = temp;
+        putFaces();
     }
 
 
@@ -197,6 +267,7 @@ public class Rubicks_cube {
             rightFace[0][j] = temp;
         }
         upperFace = transposeRight(upperFace);
+        putFaces();
     }
 
     public void turnRight2() {
@@ -207,6 +278,7 @@ public class Rubicks_cube {
             backFace[1][j] = rightFace[1][j];
             rightFace[1][j] = temp;
         }
+        putFaces();
     }
 
     public void turnRight3() {
@@ -218,12 +290,19 @@ public class Rubicks_cube {
             rightFace[2][j] = temp;
         }
         lowerFace = transposeLeft(lowerFace);
+        putFaces();
     }
 
     public void turnToRight() {
-        turnRight1();
-        turnRight2();
-        turnRight3();
+        upperFace = transposeRight(upperFace);
+        lowerFace = transposeLeft(lowerFace);
+
+        Colour[][] temp = frontFace;
+        frontFace = leftFace;
+        leftFace = backFace;
+        backFace = rightFace;
+        rightFace = temp;
+        putFaces();
     }
 
 
@@ -232,7 +311,7 @@ public class Rubicks_cube {
 
 
     public void turnUp1() {
-        for(int i = 0; i<3; i++) {
+        /*for(int i = 0; i<3; i++) {
             Colour temp = frontFace[i][0];
             frontFace[i][0] = lowerFace[i][0];
             lowerFace[i][0] = backFace[2-i][0];
@@ -240,21 +319,32 @@ public class Rubicks_cube {
             upperFace[i][0] = temp;
         }
         leftFace = transposeRight(leftFace);
+        */
+
+        turnPlaneToLeft();
+        turnLeft3();
+        turnPlaneToRight();
+        putFaces();
     }
 
     public void turnUp2() {
-        for(int i = 0; i<3; i++) {
+        /*for(int i = 0; i<3; i++) {
             Colour temp = frontFace[i][1];
             frontFace[i][1] = lowerFace[i][1];
             lowerFace[i][1] = backFace[2-i][1];
             backFace[2-i][1] = upperFace[i][1];
             upperFace[i][1] = temp;
         }
+       */
 
+        turnPlaneToLeft();
+        turnLeft2();
+        turnPlaneToRight();
+        putFaces();
     }
 
     public void turnUp3() {
-        for(int i = 0; i<3; i++) {
+        /*for(int i = 0; i<3; i++) {
             Colour temp = frontFace[i][2];
             frontFace[i][2] = lowerFace[i][2];
             lowerFace[i][2] = backFace[2-i][2];
@@ -262,13 +352,25 @@ public class Rubicks_cube {
             upperFace[i][2] = temp;
         }
         rightFace = transposeLeft(rightFace);
+        */
+
+        turnPlaneToLeft();
+        turnLeft1();
+        turnPlaneToRight();
+        putFaces();
     }
 
 
     public void turnToUp() {
-        turnUp1();
-        turnUp2();
-        turnUp3();
+        leftFace = transposeRight(leftFace);
+        rightFace = transposeLeft(rightFace);
+
+        Colour[][] temp = frontFace;
+        frontFace = lowerFace;
+        lowerFace = backFace;
+        backFace = upperFace;
+        upperFace = temp;
+        putFaces();
     }
 
 
@@ -277,7 +379,7 @@ public class Rubicks_cube {
 
 
     public void turnDown1() {
-        for(int i=0; i<3;i++) {
+        /*for(int i=0; i<3;i++) {
             Colour temp = frontFace[i][0];
             frontFace[i][0] = upperFace[i][0];
             upperFace[i][0] = backFace[2-i][0];
@@ -285,20 +387,30 @@ public class Rubicks_cube {
             lowerFace[i][0] = temp;
         }
         leftFace = transposeLeft(leftFace);
+        */
+        turnPlaneToLeft();
+        turnRight3();
+        turnPlaneToRight();
+        putFaces();
     }
 
     public void turnDown2() {
-        for(int i=0; i<3;i++) {
+        /*for(int i=0; i<3;i++) {
             Colour temp = frontFace[i][1];
             frontFace[i][1] = upperFace[i][1];
             upperFace[i][1] = backFace[2-i][1];
             backFace[2-i][1] = lowerFace[i][1];
             lowerFace[i][1] = temp;
         }
+        */
+        turnPlaneToLeft();
+        turnRight2();
+        turnPlaneToRight();
+        putFaces();
     }
 
     public void turnDown3() {
-        for(int i=0; i<3;i++) {
+        /*for(int i=0; i<3;i++) {
             Colour temp = frontFace[i][2];
             frontFace[i][2] = upperFace[i][2];
             upperFace[i][2] = backFace[2-i][2];
@@ -306,12 +418,22 @@ public class Rubicks_cube {
             lowerFace[i][2] = temp;
         }
         rightFace = transposeRight(rightFace);
+        */
+        turnPlaneToLeft();
+        turnRight1();
+        turnPlaneToRight();
+        putFaces();
     }
 
     public void turnToDown() {
-        turnDown1();
-        turnDown2();
-        turnDown3();
+        leftFace = transposeLeft(leftFace);
+        rightFace = transposeRight(rightFace);
+
+        Colour[][] temp = frontFace;
+        frontFace = upperFace;
+        upperFace = backFace;
+        backFace = lowerFace;
+        lowerFace = temp;
     }
 
 
@@ -328,37 +450,57 @@ public class Rubicks_cube {
         this.turnToLeft();
         this.turnUp3();
         this.turnToRight();
+        putFaces();
     }
 
     public void turnPlaneLeft2() {
         this.turnToLeft();
         this.turnUp2();
         this.turnToRight();
+        putFaces();
     }
+
     public void turnPlaneLeft3() {
         this.turnToLeft();
         this.turnUp1();
         this.turnToRight();
+        putFaces();
     }
 
-
+    public void turnPlaneToLeft() {
+       turnPlaneLeft1();
+       turnPlaneLeft2();
+       turnPlaneLeft3();
+        putFaces();
+    }
 
     public void turnPlaneRight1() {
         this.turnToRight();
         this.turnUp1();
         this.turnToLeft();
+        putFaces();
     }
 
     public void turnPlaneRight2() {
         this.turnToRight();
         this.turnUp2();
         this.turnToLeft();
+        putFaces();
     }
 
     public void turnPlaneRight3() {
         this.turnToRight();
         this.turnUp3();
         this.turnToLeft();
+        putFaces();
+    }
+
+
+    public void turnPlaneToRight() {
+       turnPlaneRight1();
+       turnPlaneRight2();
+       turnPlaneRight3();
+       putFaces();
     }
 
 
@@ -367,27 +509,33 @@ public class Rubicks_cube {
 
 
     public Colour[][] getFront() {
-        return frontFace;
+       Colour[][] tmp = cube.get("front");
+       return tmp;
     }
 
     public Colour[][] getBack() {
-        return backFace;
+        Colour[][] tmp = cube.get("back");
+        return tmp;
     }
 
     public Colour[][] getLeft() {
-        return  leftFace;
+        Colour[][] tmp = cube.get("left");
+        return tmp;
     }
 
     public Colour[][] getRight() {
-        return rightFace;
+        Colour[][] tmp = cube.get("right");
+        return tmp;
     }
 
     public Colour[][] getUpper() {
-        return upperFace;
+        Colour[][] tmp = cube.get("upper");
+        return tmp;
     }
 
     public Colour[][] getLower() {
-        return lowerFace;
+        Colour[][] tmp = cube.get("lower");
+        return tmp;
     }
 
     public List<Colour[][]> getAll() {
