@@ -50,7 +50,7 @@ public class Rubicks_cube {
 
 
 
-    public static Colour[][] transposeLeft(Colour[][] face) {
+    public static Colour[][] transposeLeft(Colour[][] face) {                      //clockwise
         int m = 3;
         int p = m/2;
         for(int i = 0; i < m/2; i++) {
@@ -65,7 +65,7 @@ public class Rubicks_cube {
         return face;
     }
 
-    public static Colour[][] transposeRight(Colour[][] face) {
+    public static Colour[][] transposeRight(Colour[][] face) {                     //anticlockwise
         int m = 3;
         int p = m/2;
         for(int i = 0; i < m/2; i++) {
@@ -435,10 +435,9 @@ public class Rubicks_cube {
         backFace = lowerFace;
         lowerFace = temp;
     }
+    
 
-
-
-    public void turnPlaneLeft1(){
+    public void turnPlaneLeft1(){                              //nearest to the user
         /*for(int i=0; i<3; i++) {
             Colour temp = leftFace[i][1];
             leftFace[i][1] = lowerFace[i][1];
@@ -447,23 +446,42 @@ public class Rubicks_cube {
             upperFace[i][1] = temp;
         } */
 
-        this.turnToLeft();
-        this.turnUp3();
+        /*this.turnToLeft();
+        this.turnUp1();
         this.turnToRight();
+        */
+
+        for(int k=0; k<3; k++) {
+            Colour temp = leftFace[2-k][2];
+            leftFace[2-k][2] = upperFace[2][k];
+            upperFace[2][k] = rightFace[k][0];
+            rightFace[k][0] = lowerFace[0][2-k];
+            lowerFace[0][2-k] = temp;
+        }
+        frontFace = transposeRight(frontFace);
         putFaces();
     }
 
     public void turnPlaneLeft2() {
-        this.turnToLeft();
-        this.turnUp2();
-        this.turnToRight();
+        for(int k=0; k<3; k++) {
+            Colour temp = leftFace[2-k][1];
+            leftFace[2-k][1] = upperFace[1][k];
+            upperFace[1][k] = rightFace[k][1];
+            rightFace[k][1] = lowerFace[1][2-k];
+            lowerFace[1][2-k] = temp;
+        }
         putFaces();
     }
 
     public void turnPlaneLeft3() {
-        this.turnToLeft();
-        this.turnUp1();
-        this.turnToRight();
+        for(int k=0; k<3; k++) {
+            Colour temp = leftFace[2-k][0];
+            leftFace[2-k][0] = upperFace[0][k];
+            upperFace[0][k] = rightFace[k][2];
+            rightFace[k][2] = lowerFace[2][2-k];
+            lowerFace[2][2-k] = temp;
+        }
+        backFace = transposeLeft(backFace);
         putFaces();
     }
 
@@ -471,27 +489,41 @@ public class Rubicks_cube {
        turnPlaneLeft1();
        turnPlaneLeft2();
        turnPlaneLeft3();
-        putFaces();
+       putFaces();
     }
 
-    public void turnPlaneRight1() {
-        this.turnToRight();
-        this.turnUp1();
-        this.turnToLeft();
+    public void turnPlaneRight1() {                        //nearest to the user
+        for(int k=0; k<3; k++) {
+            Colour temp = rightFace[2-k][0];
+            rightFace[2-k][0] = upperFace[2][2-k];
+            upperFace[2][2-k] = leftFace[k][2];
+            leftFace[k][2] = lowerFace[0][k];
+            lowerFace[0][k] = temp;
+        }
+        frontFace = transposeLeft(frontFace);
         putFaces();
     }
 
     public void turnPlaneRight2() {
-        this.turnToRight();
-        this.turnUp2();
-        this.turnToLeft();
+        for(int k=0; k<3; k++) {
+            Colour temp = rightFace[2-k][1];
+            rightFace[2-k][1] = upperFace[1][2-k];
+            upperFace[1][2-k] = leftFace[k][1];
+            leftFace[k][1] = lowerFace[1][k];
+            lowerFace[1][k] = temp;
+        }
         putFaces();
     }
 
     public void turnPlaneRight3() {
-        this.turnToRight();
-        this.turnUp3();
-        this.turnToLeft();
+        for(int k=0; k<3; k++) {
+            Colour temp = rightFace[2-k][2];
+            rightFace[2-k][2] = upperFace[0][2-k];
+            upperFace[0][2-k] = leftFace[k][0];
+            leftFace[k][0] = lowerFace[2][k];
+            lowerFace[2][k] = temp;
+        }
+        backFace = transposeLeft(backFace);
         putFaces();
     }
 
@@ -509,37 +541,67 @@ public class Rubicks_cube {
 
 
     public Colour[][] getFront() {
-       Colour[][] tmp = cube.get("front");
+       Colour[][] tmp = new Colour[3][3];
+       for(int i=0; i<3; i++) {
+           for(int j=0; j<3; j++) {
+               tmp[i][j] = frontFace[i][j];
+           }
+       }
        return tmp;
     }
 
     public Colour[][] getBack() {
-        Colour[][] tmp = cube.get("back");
+        Colour[][] tmp = new Colour[3][3];
+        for(int i=0; i<3; i++) {
+            for(int j=0; j<3; j++) {
+                tmp[i][j] = backFace[i][j];
+            }
+        }
         return tmp;
     }
 
     public Colour[][] getLeft() {
-        Colour[][] tmp = cube.get("left");
+        Colour[][] tmp = new Colour[3][3];
+        for(int i=0; i<3; i++) {
+            for(int j=0; j<3; j++) {
+                tmp[i][j] = leftFace[i][j];
+            }
+        }
         return tmp;
     }
 
     public Colour[][] getRight() {
-        Colour[][] tmp = cube.get("right");
+        Colour[][] tmp = new Colour[3][3];
+        for(int i=0; i<3; i++) {
+            for(int j=0; j<3; j++) {
+                tmp[i][j] = rightFace[i][j];
+            }
+        }
         return tmp;
     }
 
     public Colour[][] getUpper() {
-        Colour[][] tmp = cube.get("upper");
+        Colour[][] tmp = new Colour[3][3];
+        for(int i=0; i<3; i++) {
+            for(int j=0; j<3; j++) {
+                tmp[i][j] = upperFace[i][j];
+            }
+        }
         return tmp;
     }
 
     public Colour[][] getLower() {
-        Colour[][] tmp = cube.get("lower");
+        Colour[][] tmp = new Colour[3][3];
+        for(int i=0; i<3; i++) {
+            for(int j=0; j<3; j++) {
+                tmp[i][j] = lowerFace[i][j];
+            }
+        }
         return tmp;
     }
 
     public List<Colour[][]> getAll() {
-        List<Colour[][]> result = new ArrayList<Colour[][]>();
+        List<Colour[][]> result = new ArrayList<>();
         result.add(getFront());
         result.add(getBack());
         result.add(getLeft());
@@ -548,7 +610,6 @@ public class Rubicks_cube {
         result.add(getLower());
         return result;
     }
-
 
 
 
