@@ -1,193 +1,174 @@
-/*package com.keenpro;
+package com.keenpro;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class Rubicks_cubeTest {
     @Test
-    void randomize() throws Exception {
+    void randomize() {
         Rubicks_cube cube = new Rubicks_cube();
         cube.randomize();
 
-        for(String[] arr: cube.getFront()) {
-            for(String colour: arr) {
-                if(colour == null) {
-                    throw new Exception("What a Terrible Failure(front)");
-                }
+        for (Colour[] arr : cube.getFront()) {
+            for (Colour colour : arr) {
+                assertFalse(colour == null);
             }
         }
-        for(String[] arr: cube.getBack()) {
-            for(String colour: arr) {
-                if(colour == null) {
-                    throw new Exception("What a Terrible Failure(back)");
-                }
+        for (Colour[] arr : cube.getBack()) {
+            for (Colour colour : arr) {
+                assertFalse(colour == null);
             }
         }
-        for(String[] arr: cube.getLeft()) {
-            for(String colour: arr) {
-                if(colour == null) {
-                    throw new Exception("What a Terrible Failure(left)");
-                }
+        for (Colour[] arr : cube.getLeft()) {
+            for (Colour colour : arr) {
+                assertFalse(colour == null);
             }
         }
-        for(String[] arr: cube.getRight()) {
-            for(String colour: arr) {
-                if(colour == null) {
-                    throw new Exception("What a Terrible Failure(right)");
-                }
+        for (Colour[] arr : cube.getRight()) {
+            for (Colour colour : arr) {
+                assertFalse(colour == null);
             }
         }
-        for(String[] arr: cube.getLower()) {
-            for(String colour: arr) {
-                if(colour == null) {
-                    throw new Exception("What a Terrible Failure(lower)");
-                }
+        for (Colour[] arr : cube.getUpper()) {
+            for (Colour colour : arr) {
+                assertFalse(colour == null);
             }
         }
-        for(String[] arr: cube.getUpper()) {
-            for(String colour: arr) {
-                if(colour == null) {
-                    throw new Exception("What a Terrible Failure(upper)");
-                }
+        for (Colour[] arr : cube.getLower()) {
+            for (Colour colour : arr) {
+                assertFalse(colour == null);
             }
         }
     }
-
 
 
     //if common [turnTo()] method is correct then all [turnTo*() methods are correct (Im 2 lazy 2 make 12 mor tests)
 
 
     @Test
-    void turnToLeft() throws Exception {
+    void turnToLeft() {
         Rubicks_cube defaultCube = new Rubicks_cube();
 
         Rubicks_cube cube = new Rubicks_cube();
         cube.turnToLeft();
 
-        String[][] front = cube.getFront();
-        String[][] back = cube.getBack();
-        String[][] left = cube.getLeft();
-        String[][] right = cube.getRight();
-        String[][] upper = cube.getUpper();
-        String[][] lower = cube.getLower();
+        Colour[][] front = cube.getFront();
+        Colour[][] back = cube.getBack();
+        Colour[][] left = cube.getLeft();
+        Colour[][] right = cube.getRight();
+        Colour[][] upper = cube.getUpper();
+        Colour[][] lower = cube.getLower();
 
-        String[][] defFront = defaultCube.getFront();
-        String[][] defBack = defaultCube.getBack();
-        String[][] defLeft = defaultCube.getLeft();
-        String[][] defRight = defaultCube.getRight();
-        String[][] defUpper = defaultCube.getUpper();
-        String[][] defLower = defaultCube.getLower();
+        Colour[][] defFront = defaultCube.getFront();
+        Colour[][] defBack = defaultCube.getBack();
+        Colour[][] defLeft = defaultCube.getLeft();
+        Colour[][] defRight = defaultCube.getRight();
+        Colour[][] defUpper = defaultCube.getUpper();
+        Colour[][] defLower = defaultCube.getLower();
 
-        for(int i = 0; i<3; i++) {
-            for(int j = 0; j<3; j++) {
-                if(front[i][j]!= defRight[i][j] || right[i][j] != defBack[i][j] ||
-                        back[i][j] != defLeft[i][j] || left[i][j] != defFront[i][j]) {
-                    throw new Exception("Incorrect turnToLeft() method");
-                }
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                assertTrue(front[i][j] == defRight[i][j] && left[i][j] == defFront[i][j] &&
+                        back[i][j] == defLeft[i][j] && right[i][j] == defBack[i][j] &&
+                        upper[i][j] == Rubicks_cube.transposeLeft(defUpper)[i][j] &&
+                        lower[i][j] == Rubicks_cube.transposeRight(defLower)[i][j]);
+
             }
         }
     }
 
 
     @Test
-    void turnToRight() throws Exception {
+    void turnToRight() {
         Rubicks_cube defaultCube = new Rubicks_cube();
 
         Rubicks_cube cube = new Rubicks_cube();
         cube.turnToRight();
 
-        String[][] front = cube.getFront();
-        String[][] back = cube.getBack();
-        String[][] left = cube.getLeft();
-        String[][] right = cube.getRight();
-        String[][] upper = cube.getUpper();
-        String[][] lower = cube.getLower();
+        Colour[][] front = cube.getFront();
+        Colour[][] back = cube.getBack();
+        Colour[][] left = cube.getLeft();
+        Colour[][] right = cube.getRight();
+        Colour[][] upper = cube.getUpper();
+        Colour[][] lower = cube.getLower();
 
-        String[][] defFront = defaultCube.getFront();
-        String[][] defBack = defaultCube.getBack();
-        String[][] defLeft = defaultCube.getLeft();
-        String[][] defRight = defaultCube.getRight();
-        String[][] defUpper = defaultCube.getUpper();
-        String[][] defLower = defaultCube.getLower();
+        Colour[][] defFront = defaultCube.getFront();
+        Colour[][] defBack = defaultCube.getBack();
+        Colour[][] defLeft = defaultCube.getLeft();
+        Colour[][] defRight = defaultCube.getRight();
+        Colour[][] defUpper = defaultCube.getUpper();
+        Colour[][] defLower = defaultCube.getLower();
 
-        for(int i = 0; i<3; i++) {
-            for(int j = 0; j<3; j++) {
-                if(front[i][j]!= defLeft[i][j] || right[i][j] != defFront[i][j] ||
-                        back[i][j] != defRight[i][j] || left[i][j] != defBack[i][j]) {
-                    throw new Exception("Incorrect turnToRight() method");
-                }
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                assertTrue(front[i][j] == defLeft[i][j] && left[i][j] == defBack[i][j] &&
+                        back[i][j] == defRight[i][j] && right[i][j] == defFront[i][j] &&
+                        upper[i][j] == Rubicks_cube.transposeRight(defUpper)[i][j] &&
+                        lower[i][j] == Rubicks_cube.transposeLeft(defLower)[i][j]);
+
             }
         }
     }
 
 
     @Test
-    void turnToUp() throws Exception {
+    void turnToUp() {
         Rubicks_cube defaultCube = new Rubicks_cube();
 
         Rubicks_cube cube = new Rubicks_cube();
         cube.turnToUp();
 
-        String[][] front = cube.getFront();
-        String[][] back = cube.getBack();
-        String[][] left = cube.getLeft();
-        String[][] right = cube.getRight();
-        String[][] upper = cube.getUpper();
-        String[][] lower = cube.getLower();
+        defaultCube.turnPlaneToLeft();
+        defaultCube.turnToLeft();
+        defaultCube.turnPlaneToRight();
 
-        String[][] defFront = defaultCube.getFront();
-        String[][] defBack = defaultCube.getBack();
-        String[][] defLeft = defaultCube.getLeft();
-        String[][] defRight = defaultCube.getRight();
-        String[][] defUpper = defaultCube.getUpper();
-        String[][] defLower = defaultCube.getLower();
-
-        for(int i = 0; i<3; i++) {
-            for(int j = 0; j<3; j++) {
-                if(front[i][j] != defLower[i][j]) throw new Exception("Incorrect turnToUp() method");
-                if(lower[i][j] != defBack[i][j]) throw new Exception("Incorrect turnToUp() method");
-                if(back[i][j] != defUpper[i][j])throw new Exception("Incorrect turnToUp() method");
-                if(upper[i][j] != defFront[i][j]) throw new Exception("Incorrect turnToUp() method");
-
-                }
-            }
-        }
-
+        assertTrue(cube.equals(defaultCube));
+    }
 
     @Test
-    void turnToDown() throws Exception {
+    void turnToDown() {
         Rubicks_cube defaultCube = new Rubicks_cube();
 
         Rubicks_cube cube = new Rubicks_cube();
         cube.turnToDown();
 
-        String[][] front = cube.getFront();
-        String[][] back = cube.getBack();
-        String[][] left = cube.getLeft();
-        String[][] right = cube.getRight();
-        String[][] upper = cube.getUpper();
-        String[][] lower = cube.getLower();
+        defaultCube.turnPlaneToRight();
+        defaultCube.turnToLeft();
+        defaultCube.turnPlaneToLeft();
 
-        String[][] defFront = defaultCube.getFront();
-        String[][] defBack = defaultCube.getBack();
-        String[][] defLeft = defaultCube.getLeft();
-        String[][] defRight = defaultCube.getRight();
-        String[][] defUpper = defaultCube.getUpper();
-        String[][] defLower = defaultCube.getLower();
-
-        for(int i = 0; i<3; i++) {
-            for(int j = 0; j<3; j++) {
-                if(front[i][j] != defUpper[i][j])throw new Exception("Incorrect turnToDown() method");
-                if(upper[i][j] != defBack[i][j]) throw new Exception("Incorrect turnToDown() method");
-                if(back[i][j] != defLower[i][j])throw new Exception("Incorrect turnToDown() method");
-                if(lower[i][j] != defFront[i][j]) throw new Exception("Incorrect turnToDown() method");
-                }
-            }
-        }
+        assertTrue(cube.equals(defaultCube));
     }
 
+    @Test
+    void turnPlaneToLeft() {
+        Rubicks_cube defaultCube = new Rubicks_cube();
+
+        Rubicks_cube cube = new Rubicks_cube();
+        cube.turnPlaneToLeft();
+
+        defaultCube.turnToLeft();
+        defaultCube.turnToUp();
+        defaultCube.turnToRight();
+
+        assertTrue(cube.equals(defaultCube));
+    }
+
+    @Test
+    void turnPlaneToRight() {
+        Rubicks_cube defaultCube = new Rubicks_cube();
+
+        Rubicks_cube cube = new Rubicks_cube();
+        cube.turnPlaneToRight();
+
+        defaultCube.turnToRight();
+        defaultCube.turnToUp();
+        defaultCube.turnToLeft();
+
+        assertTrue(cube.equals(defaultCube));
+    }
+}
 
 
-*/
+

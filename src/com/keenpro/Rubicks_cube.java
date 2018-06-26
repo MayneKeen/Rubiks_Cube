@@ -8,9 +8,7 @@ public class Rubicks_cube {
 
     private static PrintStream out = System.out;
 
-    enum Colour {
-        white, yellow, blue, red, orange, green
-    }
+
 
     public Rubicks_cube() {
         for (int i = 0; i < 3; i++) {
@@ -29,7 +27,39 @@ public class Rubicks_cube {
 
 
 
-    private HashMap<String, Colour[][]> cube = new HashMap<>();
+    public boolean equals(Rubicks_cube cube) {
+        Colour[][] front2 = cube.getFront();
+        Colour[][] back2 = cube.getBack();
+        Colour[][] left2 = cube.getLeft();
+        Colour[][] right2 = cube.getRight();
+        Colour[][] upper2 = cube.getUpper();
+        Colour[][] lower2 = cube.getLower();
+
+        Colour[][] front1 = this.getFront();
+        Colour[][] back1 = this.getBack();
+        Colour[][] left1 = this.getLeft();
+        Colour[][] right1 = this.getRight();
+        Colour[][] upper1 = this.getUpper();
+        Colour[][] lower1 = this.getLower();
+
+
+        for(int i=0; i<3; i++) {
+            for(int j=0; j<3; j++) {
+                if(front1[i][j] != front2[i][j] || back1[i][j] != back2[i][j] ||
+                        left1[i][j] != left2[i][j] || right1[i][j] != right2[i][j] ||
+                        upper1[i][j] != upper2[i][j] || lower1[i][j] != lower2[i][j])
+                    return false;
+            }
+        }
+        return true;
+    }
+
+
+    private Map<String, Colour[][]> cube = new HashMap<>();
+
+
+
+
 
     private Colour frontFace[][] = new Colour[3][3];
     private Colour backFace[][] = new Colour[3][3];
@@ -52,7 +82,6 @@ public class Rubicks_cube {
 
     public static Colour[][] transposeLeft(Colour[][] face) {                      //clockwise
         int m = 3;
-        int p = m/2;
         for(int i = 0; i < m/2; i++) {
             for (int j = i; j < m - 1 - i; j++) {
                 Colour tmp = face[i][j];
@@ -67,7 +96,6 @@ public class Rubicks_cube {
 
     public static Colour[][] transposeRight(Colour[][] face) {                     //anticlockwise
         int m = 3;
-        int p = m/2;
         for(int i = 0; i < m/2; i++) {
             for (int j = i; j < m - 1 - i; j++) {
                 Colour tmp = face[i][j];
@@ -362,15 +390,9 @@ public class Rubicks_cube {
 
 
     public void turnToUp() {
-        leftFace = transposeRight(leftFace);
-        rightFace = transposeLeft(rightFace);
-
-        Colour[][] temp = frontFace;
-        frontFace = lowerFace;
-        lowerFace = backFace;
-        backFace = upperFace;
-        upperFace = temp;
-        putFaces();
+       turnToDown();
+       turnToDown();
+       turnToDown();
     }
 
 
@@ -426,16 +448,11 @@ public class Rubicks_cube {
     }
 
     public void turnToDown() {
-        leftFace = transposeLeft(leftFace);
-        rightFace = transposeRight(rightFace);
-
-        Colour[][] temp = frontFace;
-        frontFace = upperFace;
-        upperFace = backFace;
-        backFace = lowerFace;
-        lowerFace = temp;
+        turnDown1();
+        turnDown2();
+        turnDown3();
     }
-    
+
 
     public void turnPlaneLeft1(){                              //nearest to the user
         /*for(int i=0; i<3; i++) {
@@ -529,9 +546,9 @@ public class Rubicks_cube {
 
 
     public void turnPlaneToRight() {
-       turnPlaneRight1();
-       turnPlaneRight2();
-       turnPlaneRight3();
+       turnPlaneToLeft();
+       turnPlaneToLeft();
+       turnPlaneToLeft();
        putFaces();
     }
 
